@@ -2,11 +2,11 @@
 /**
  * Configuration Interface
  *
- * @package tmtru
+ * @package TMTRU
  * @author Manuel Zavatta <manuel.zavatta@gmail.com>
  */
 
-namespace tmtru\Interfaces;
+namespace TMTRU\Interfaces;
 
 interface ConfigurationInterface{
 

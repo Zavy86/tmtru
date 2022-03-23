@@ -2,14 +2,14 @@
 /**
  * Configuration
  *
- * @package tmtru
+ * @package TMTRU
  * @author Manuel Zavatta <manuel.zavatta@gmail.com>
  */
 
-namespace tmtru;
+namespace TMTRU;
 
-use tmtru\Interfaces\ConfigurationInterface;
-use tmtru\Exceptions\ConfigurationException;
+use TMTRU\Interfaces\ConfigurationInterface;
+use TMTRU\Exceptions\ConfigurationException;
 
 final class Configuration implements ConfigurationInterface{
 
@@ -19,7 +19,7 @@ final class Configuration implements ConfigurationInterface{
 	protected string $password;
 
 	public function __construct(){
-		$configurationFilePath=DIR.DIRECTORY_SEPARATOR."configuration.json";
+		$configurationFilePath=DIR."configuration.json";
 		if(!file_exists($configurationFilePath)){throw ConfigurationException::configurationFileNotFound($configurationFilePath);}
 		$bytes=file_get_contents($configurationFilePath);
 		$parameters=json_decode($bytes,true);

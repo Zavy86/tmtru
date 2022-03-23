@@ -2,11 +2,11 @@
 /**
  * Configuration Exception
  *
- * @package tmtru
+ * @package TMTRU
  * @author Manuel Zavatta <manuel.zavatta@gmail.com>
  */
 
-namespace tmtru\Exceptions;
+namespace TMTRU\Exceptions;
 
 final class ConfigurationException extends \Exception{
 
@@ -19,6 +19,7 @@ final class ConfigurationException extends \Exception{
 	public static function configurationSyntaxError():static{
 		return new static('Configuration syntax error.',static::CONFIGURATION_SYNTAX_ERROR);
 	}
+	
 	public const CONFIGURATION_PARAMETER_NOT_FOUND=103;
 	public static function configurationParameterNotFound(string $parameter):static{
 		return new static('Expected parameter '.$parameter.' in configuration.',static::CONFIGURATION_PARAMETER_NOT_FOUND);
