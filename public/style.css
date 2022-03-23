@@ -1,0 +1,21 @@
+/**
+ * Style
+ *
+ * @package TMTRU
+ * @author Manuel Zavatta <manuel.zavatta@gmail.com>
+ */
+
+div{padding-top:99px;text-align:center;}
+
+h1{font-family:sans-serif;font-size:36px;}
+h2{font-family:sans-serif;font-size:27px;}
+h3{font-family:sans-serif;font-size:18px;}
+
+p{font-family:sans-serif;font-size:18px;}
+
+.hidden{visibility:hidden;}
+
+.alert{color:orange}
+
+.italic{font-style:italic;}
+.bold{font-weight:bolder;}

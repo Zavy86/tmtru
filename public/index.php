@@ -1,7 +1,8 @@
 <html>
 	<head>
 		<title>tmtru</title>
-		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body>
 		<div>
@@ -11,9 +12,3 @@
 		</div>
 	</body>
 </html>
-<style>
-	div{width:270px;margin:0 auto;padding-top:99px;text-align:center;}
-	h1{font-family:sans-serif;font-size:27px;}
-	p{font-family:sans-serif;font-size:18px;}
-	.italic{font-style:italic;}
-</style>

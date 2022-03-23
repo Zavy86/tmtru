@@ -25,7 +25,7 @@ try{
 		throw $Exception;
 		die();
 	}
-	exit(header('Location: notfound.php'));
+	exit(header('Location: notfound.php?link='.$linkUid));
 }
 
 ?>
@@ -33,6 +33,7 @@ try{
 	<head>
 		<title>tmtru</title>
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body>
 		<div>
@@ -44,14 +45,6 @@ try{
 		</div>
 	</body>
 </html>
-<style>
-	div{padding-top:99px;text-align:center;}
-	h1{font-family:sans-serif;font-size:27px;}
-	p{font-family:sans-serif;font-size:18px;}
-	.hidden{visibility:hidden;}
-  .alert{color:orange}
-  .italic{font-style:italic;}
-</style>
 <script>
   setInterval(function(){
     const dots=document.getElementById("dots");

@@ -15,6 +15,7 @@ $linkUid=$_REQUEST['link']??null;
 	<head>
 		<title>tmtru</title>
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body>
 		<div>
@@ -23,15 +24,7 @@ $linkUid=$_REQUEST['link']??null;
 			<p class="italic">"tell me the real url"</p>
 			<br>
 			<h2>Error 404</h2>
-			<p>link "<?php echo $linkUid; ?>" was not found</p>
+			<p>link <?php echo ($linkUid?'"'.$linkUid.'"':null); ?> was not found</p>
 		</div>
 	</body>
 </html>
-<style>
-	div{padding-top:99px;text-align:center;}
-  h1{font-family:sans-serif;font-size:27px;}
-  h2{font-family:sans-serif;font-size:21px;}
-	p{font-family:sans-serif;font-size:18px;}
-	.italic{font-style:italic;}
-	.bold{font-weight:bolder;}
-</style>
