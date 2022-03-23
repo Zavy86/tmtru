@@ -6,8 +6,8 @@
  * @author Manuel Zavatta <manuel.zavatta@gmail.com>
  */
 
-//var_dump($_REQUEST);
 $linkUid=$_REQUEST['link']??null;
+//var_dump($_REQUEST);
 //var_dump($linkUid);
 
 ?>
