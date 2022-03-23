@@ -1,3 +1,5 @@
 /.idea/
-/urls/
+/links/
 /vendor/
+.htaccess
+configuration.json
