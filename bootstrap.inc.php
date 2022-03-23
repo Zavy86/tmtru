@@ -2,7 +2,7 @@
 /**
  * Bootstrap
  *
- * @package tmtru
+ * @package TMTRU
  * @author Manuel Zavatta <manuel.zavatta@gmail.com>
  */
 error_reporting(E_ALL);
