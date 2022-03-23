@@ -58,7 +58,10 @@ final class Link implements LinkInterface{
 	}
 
 	private function makeFilePath():string{
-		return DIR."links".DIRECTORY_SEPARATOR.substr($this->uid,0,1).DIRECTORY_SEPARATOR.$this->uid.".json";
+		$directory=DIR."links".DIRECTORY_SEPARATOR.substr($this->uid,0,1);
+		$file=$this->uid.".json";
+		if(!is_dir($directory)){mkdir($directory,0755,true);}
+		return $directory.DIRECTORY_SEPARATOR.$file;
 	}
 
 	private function generateUID():string{
