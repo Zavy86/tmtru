@@ -1,0 +1,16 @@
+{
+    "name": "zavy86/tmtru",
+    "description": "Tell Me The Real URL - A simple personal databaseless URL shortner and redirect",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Manuel Zavatta",
+            "email": "manuel.zavatta@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"tmtru\\": "src/"}
+    },
+    "require": {}
+}
