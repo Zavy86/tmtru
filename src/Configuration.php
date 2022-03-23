@@ -50,19 +50,8 @@ final class Configuration implements ConfigurationInterface{
 		return array(
 			'debuggable'=>$this->isDebuggable(),
 			'title'=>$this->getTitle(),
-			'owner'=>$this->getOwner(),
-			'password'=>$this->getPasswordMasked()
+			'owner'=>$this->getOwner()
 		);
 	}
-
-	private function getPasswordMasked():string{
-		if(strlen($this->password)<=6){return "********";}
-		return substr($this->password,0,2).str_repeat("*",(strlen($this->password)-4)).substr($this->password,-2);
-	}
-
-	/*public function get(string $property):mixed{
-		if(!key_exists($property,get_class_vars($this::class))){throw ConfigurationException::propertyNotFound(static::class,$property);}
-		return $this->$property;
-	}*/
 
 }
