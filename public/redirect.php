@@ -36,7 +36,7 @@ try{
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body>
-		<div>
+		<div class="container">
 			<img src="logo.png" alt="coordinator-engine-logo" width="126">
 			<h1>tmtru</h1>
 			<p>Redirecting to <strong><a href="<?php echo $Link->getURL(); ?>"><?php echo $Link->getURL(); ?></a></strong></p>

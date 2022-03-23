@@ -18,7 +18,7 @@ $linkUid=$_REQUEST['link']??null;
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body>
-		<div>
+		<div class="container">
 			<img src="logo.png" alt="coordinator-engine-logo" width="126">
 			<h1>tmtru</h1>
 			<p class="italic">"tell me the real url"</p>
