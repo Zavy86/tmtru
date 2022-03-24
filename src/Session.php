@@ -42,8 +42,17 @@ final class Session implements SessionInterface{
 		return $this->authentication;
 	}
 
+	private function refresh():void{
+		$this->authentication=time();
+		$_SESSION['authentication']=$this->authentication;
+	}
+
 	public function isValid():bool{
-		return ((time()-$this->getAuthenticationTimestamp())<(60*60)); // 1 hour
+		if((time()-$this->getAuthenticationTimestamp())<(60*60)){ // 1 hour
+			$this->refresh();
+			return true;
+		}
+		return false;
 	}
 
 	public function getUID():string{
@@ -51,8 +60,7 @@ final class Session implements SessionInterface{
 	}
 
 	public function login():void{
-		$this->authentication=time();
-		$_SESSION['authentication']=$this->authentication;
+		$this->refresh();
 	}
 
 	public function logout():void{
