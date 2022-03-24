@@ -16,11 +16,9 @@ final class Link implements LinkInterface{
 	protected string $uid;
 	protected ?string $url=null;
 	protected ?string $description=null;
-	protected ?string $tags=null;
+	protected array $tags=array();
 	protected int $created;
 	protected ?int $updated=null;
-	protected ?int $lastClick=null;
-	protected int $clicks;
 
 	public function __construct(?string $uid=null){
 		if(is_null($uid)){
@@ -33,7 +31,6 @@ final class Link implements LinkInterface{
 	private function new():void{
 		$this->setUID($this->generateUID());
 		$this->created=time();
-		$this->clicks=0;
 	}
 
 	private function load(string $uid):void{
@@ -85,8 +82,7 @@ final class Link implements LinkInterface{
 	}
 
 	public function getTags():array{
-		if(is_null($this->tags)){return array();}
-		return explode(',',$this->tags);
+		return $this->tags;
 	}
 
 	public function getCreated():int{
@@ -97,19 +93,6 @@ final class Link implements LinkInterface{
 		return $this->updated;
 	}
 
-	public function getLastClick():?int{
-		return $this->lastClick;
-	}
-
-	public function getClicks():int{
-		return $this->clicks;
-	}
-
-	public function incrementClicks():void{
-		$this->clicks++;
-		$this->save();
-	}
-
 	public function __debugInfo():?array{
 		return array(
 			'uid'=>$this->getUID(),
@@ -117,9 +100,7 @@ final class Link implements LinkInterface{
 			'description'=>$this->getDescription(),
 			'tags'=>$this->getTags(),
 			'created'=>$this->getCreated(),
-			'updated'=>$this->getUpdated(),
-			'lastClick'=>$this->getLastClick(),
-			'clicks'=>$this->getClicks()
+			'updated'=>$this->getUpdated()
 		);
 	}
 

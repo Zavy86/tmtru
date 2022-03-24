@@ -45,19 +45,4 @@ interface LinkInterface{
 	 */
 	public function getUpdated():?int;
 
-	/**
-	 * @return int|null link last click timestamp
-	 */
-	public function getLastClick():?int;
-
-	/**
-	 * @return int link clicks counter
-	 */
-	public function getClicks():int;
-
-	/**
-	 * increment clicks counter
-	 */
-	public function incrementClicks():void;
-
 }
