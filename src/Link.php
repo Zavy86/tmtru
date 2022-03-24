@@ -19,6 +19,7 @@ final class Link implements LinkInterface{
 	protected array $tags=array();
 	protected int $created;
 	protected ?int $updated=null;
+	protected ?int $status=null;
 
 	public function __construct(?string $uid=null){
 		if(is_null($uid)){
@@ -56,19 +57,29 @@ final class Link implements LinkInterface{
 	}
 
 	private static function makeFilePath(string $uid):string{
-		$directory=DIR."links".DIRECTORY_SEPARATOR.substr($uid,0,1);
+		$directory=DIR."links".DIRECTORY_SEPARATOR.substr($uid,0,2);
 		$file=$uid.".json";
 		if(!is_dir($directory)){mkdir($directory,0755,true);}
 		return $directory.DIRECTORY_SEPARATOR.$file;
 	}
 
-	private static function generateUID(int $length=4):string{
+	private static function generateUID(int $length=3):string{
 		/** @todo ? creare classe specifica per generazione id con dimensione ecc.. */
 		if($length>32){$length=32;}
+		$chars=array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
+			           's','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9');
 		do{
-			$uid=substr(md5(time()),0,$length);
+			$uid=implode(array_rand(array_flip($chars),$length));
 		}while(Link::exists($uid));
 		return $uid;
+	}
+
+	public static function calculatePossibles(int $length):int{
+		$possibilities=1;
+		for($i=0;$i<$length;$i++){
+			$possibilities*=36;
+		}
+		return $possibilities;
 	}
 
 	public static function exists(string $uid):bool{
