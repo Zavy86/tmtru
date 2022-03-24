@@ -29,13 +29,13 @@ final class Link implements LinkInterface{
 	}
 
 	private function new():void{
-		$this->setUID($this->generateUID());
+		$this->setUID($this::generateUID());
 		$this->created=time();
 	}
 
 	private function load(string $uid):void{
 		$this->setUID($uid);
-		$filePath=$this->makeFilePath();
+		$filePath=$this::makeFilePath($this->uid);
 		if(!file_exists($filePath)){throw LinkException::fileNotFound($filePath);}
 		$data=file_get_contents($filePath);
 		if($data===false){throw LinkException::fileReadingError();}
@@ -47,26 +47,52 @@ final class Link implements LinkInterface{
 		}
 	}
 
-	private function save():void{
-		$filePath=$this->makeFilePath($this->uid);
+	public function save():void{
+		$this->updated=time();
+		$filePath=$this::makeFilePath($this->uid);
 		$fileContent=json_encode(get_object_vars($this),JSON_PRETTY_PRINT);
 		$bytes=file_put_contents($filePath,$fileContent);
 		if($bytes===false){throw LinkException::fileWritingError();}
 	}
 
-	private function makeFilePath():string{
-		$directory=DIR."links".DIRECTORY_SEPARATOR.substr($this->uid,0,1);
-		$file=$this->uid.".json";
+	private static function makeFilePath(string $uid):string{
+		$directory=DIR."links".DIRECTORY_SEPARATOR.substr($uid,0,1);
+		$file=$uid.".json";
 		if(!is_dir($directory)){mkdir($directory,0755,true);}
 		return $directory.DIRECTORY_SEPARATOR.$file;
 	}
 
-	private function generateUID():string{
-		return substr(md5(time()),0,4); /** @todo ? creare classe specifica per generazione id con dimensione ecc.. */
+	private static function generateUID(int $length=4):string{
+		/** @todo ? creare classe specifica per generazione id con dimensione ecc.. */
+		if($length>32){$length=32;}
+		do{
+			$uid=substr(md5(time()),0,$length);
+		}while(Link::exists($uid));
+		return $uid;
+	}
+
+	public static function exists(string $uid):bool{
+		return file_exists(Link::makeFilePath($uid));
 	}
 
 	public function setUID(string $uid):void{
 		$this->uid=$uid;
+	}
+
+	public function setURL(string $url):void{
+		$this->url=$url;
+	}
+
+	public function setDescription(?string $description):void{
+		$this->description=$description;
+	}
+
+	public function addTags(string ...$tags):void{
+		foreach($tags as $tag){
+			if(!in_array($tag,$this->tags)){
+				$this->tags[]=$tag;
+			}
+		}
 	}
 
 	public function getUID():string{
