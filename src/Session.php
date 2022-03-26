@@ -34,7 +34,7 @@ final class Session implements SessionInterface{
 	}
 
 	private function load():void{
-		var_dump($_SESSION);
+		//var_dump($_SESSION);
 		$this->authentication=$_SESSION['authentication']??0;
 	}
 

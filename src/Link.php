@@ -19,7 +19,6 @@ final class Link implements LinkInterface{
 	protected array $tags=array();
 	protected int $created;
 	protected ?int $updated=null;
-	protected ?int $status=null;
 
 	public function __construct(?string $uid=null){
 		if(is_null($uid)){
@@ -96,6 +95,10 @@ final class Link implements LinkInterface{
 
 	public function setDescription(?string $description):void{
 		$this->description=$description;
+	}
+
+	public function setTags(array $tags):void{
+		$this->tags=$tags;
 	}
 
 	public function addTags(string ...$tags):void{

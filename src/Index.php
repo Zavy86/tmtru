@@ -49,8 +49,6 @@ final class Index implements IndexInterface{
 		}
 	}
 
-	/** @todo fare funzione di ripulitura directory vuote */
-
 	public function getLinks():array{
 		return $this->links;
 	}
