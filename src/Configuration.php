@@ -18,6 +18,7 @@ final class Configuration implements ConfigurationInterface{
 	private string $title;
 	private string $owner;
 	private string $password;
+	private ?string $gTag;
 
 	public function __construct(){
 		$configurationFilePath=$this->makeConfigurationFilePath();
@@ -42,15 +43,16 @@ final class Configuration implements ConfigurationInterface{
 	}
 
 	private function makeConfigurationFilePath():string{
-		return DIR."configuration.json";
+		return DIR.'configuration.json';
 	}
 
 	private function makeDefaultConfiguration(){
 		$this->debuggable=false;
 		$this->length=3;
-		$this->title="TMTRU";
-		$this->owner="Firstname Lastname";
-		$this->password="password";
+		$this->title='TMTRU';
+		$this->owner='Firstname Lastname';
+		$this->password='password';
+		$this->gTag='';
 		$this->save();
 	}
 
@@ -68,6 +70,10 @@ final class Configuration implements ConfigurationInterface{
 
 	public function getOwner():string{
 		return $this->owner;
+	}
+
+	public function getGtag():?string{
+		return $this->gTag;
 	}
 
 	public function checkPasswordMatch(string $passwordToMatch):bool{
@@ -96,12 +102,17 @@ final class Configuration implements ConfigurationInterface{
 		$this->password=$password;
 	}
 
+	public function setGtag(string $gTag):void{
+		$this->gTag=$gTag;
+	}
+
 	public function __debugInfo():?array{
 		return array(
 			'debuggable'=>$this->isDebuggable(),
 			'length'=>$this->getLength(),
 			'title'=>$this->getTitle(),
-			'owner'=>$this->getOwner()
+			'owner'=>$this->getOwner(),
+			'gTag'=>$this->getGtag()
 		);
 	}
 

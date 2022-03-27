@@ -38,6 +38,11 @@ interface ConfigurationInterface{
 	public function getOwner():string;
 
 	/**
+	 * @return string|null configuration google analytics tag
+	 */
+	public function getGtag():?string;
+
+	/**
 	 * @return bool check if given password match with configuration password
 	 */
 	public function checkPasswordMatch(string $passwordToMatch):bool;
@@ -67,5 +72,10 @@ interface ConfigurationInterface{
 	 * @throws ConfigurationException
 	 */
 	public function setPassword(string $password):void;
+
+	/**
+	 * @param string $gTag new google analytics tag
+	 */
+	public function setGtag(string $gTag):void;
 
 }

@@ -30,9 +30,19 @@ try{
 ?>
 <html>
 	<head>
-		<title>tmtru</title>
+		<title><?php echo $Link->getURL(); ?></title>
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
 		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<?php if($Configuration->getGtag()){ ?>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $Configuration->getGtag(); ?>"></script>
+		<script>
+			window.dataLayer=window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',new Date());
+			gtag('config','<?php echo $Configuration->getGtag(); ?>');
+		</script>
+<?php } ?>
 	</head>
 	<body>
 		<div class="container">

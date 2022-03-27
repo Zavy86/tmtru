@@ -16,22 +16,19 @@ $Configuration=new Configuration();
 $length=intval($_REQUEST['length']??null);
 $title=strval($_REQUEST['title']??null);
 $owner=strval($_REQUEST['owner']??null);
+$gTag=strval($_REQUEST['gTag']??'');
 $password=strval($_REQUEST['password']??null);
 $debuggable=boolval($_REQUEST['debuggable']??false);
 
-$Configuration->setDebuggable($debuggable);
-
 try{
-
+	$Configuration->setDebuggable($debuggable);
+	$Configuration->setGtag($gTag);
 	if($length){$Configuration->setLength($length);}
 	if($title){$Configuration->setTitle($title);}
 	if($owner){$Configuration->setOwner($owner);}
 	if($password){$Configuration->setPassword($password);}
-
 	$Configuration->save();
-
 	header('location: admin.php?page=settings&alert=updated');
-
 }catch(Exception $Exception){
 	if(DEBUG){
 		var_dump($_REQUEST);
