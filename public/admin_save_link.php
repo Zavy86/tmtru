@@ -11,7 +11,6 @@ use TMTRU\Link;
 //var_dump($_REQUEST);
 
 $action=strval($_REQUEST['action']??null);
-$method=strval($_REQUEST['method']??null);
 $uid=strval($_REQUEST['uid']??null);
 $url=strval($_REQUEST['url']??null);
 $description=strval($_REQUEST['description']??null);
@@ -32,7 +31,7 @@ if($action=="update"){
 	$Link=new Link();
 	//var_dump($Link);
 
-	if($method=='manual'){
+	if(strlen($uid)){
 		if(strlen($uid)<3){
 			// errore uid troppo corto
 			die("errore uid troppo corto");
