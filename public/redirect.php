@@ -31,7 +31,7 @@ try{
 <html>
 	<head>
 		<title><?php echo $Link->getURL(); ?></title>
-		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<link rel="icon" type="image/x-icon" href="img/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
 <?php if($Configuration->getGtag()){ ?>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -46,7 +46,7 @@ try{
 	</head>
 	<body>
 		<div class="container">
-			<img src="logo.png" alt="coordinator-engine-logo" width="126">
+			<img src="img/logo.png" alt="coordinator-engine-logo" width="126">
 			<h1>tmtru</h1>
 			<p class="italic">"tell me the real url"</p>
 			<br>

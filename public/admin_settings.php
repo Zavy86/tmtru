@@ -43,6 +43,17 @@ if(isset($_REQUEST['alert'])){
 
 	<div class="field is-horizontal">
 		<div class="field-label is-normal">
+			<label class="label">Version</label>
+		</div>
+		<div class="field-body">
+			<div class="field">
+				<span><?php echo file_get_contents(DIR.'VERSION.txt'); ?></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="field is-horizontal">
+		<div class="field-label is-normal">
 			<label class="label">Length</label>
 		</div>
 		<div class="field-body">

@@ -32,7 +32,7 @@ $page=$_REQUEST['page']??'list';
 <html>
 <head>
 	<title>tmtru</title>
-	<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" href="css/bulma.min.css"/>
 	<link rel="stylesheet" href="css/bulma-tagsinput.min.css"/>
@@ -46,7 +46,7 @@ $page=$_REQUEST['page']??'list';
 
 		<div class="navbar-brand">
 			<a class="navbar-item" href="/">
-				<img src="logo.png" alt="tmtru-logo" height="28">
+				<img src="img/logo.png" alt="tmtru-logo" height="28">
 			</a>
 
 			<span class="navbar-item is-bold">
