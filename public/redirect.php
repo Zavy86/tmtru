@@ -46,7 +46,7 @@ try{
 	</head>
 	<body>
 		<div class="container">
-			<img src="img/logo.png" alt="coordinator-engine-logo" width="126">
+			<img src="img/logo.png" alt="tmtru-logo" width="126">
 			<h1>tmtru</h1>
 			<p class="italic">"tell me the real url"</p>
 			<br>

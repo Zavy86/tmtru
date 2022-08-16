@@ -12,10 +12,11 @@ Work in progress...
 
 ### Manual
 
-Get the source code:
-- Composer command `composer require zavy86/tmtru`
-- Clone the repository with `git clone https://github.com/Zavy86/tmtru.git`
-- Download the latest release from https://github.com/Zavy86/tmtru/releases
+Get the source code executing the command `composer create-project zavy86/tmtru`
+or clone the repository with `git clone https://github.com/Zavy86/tmtru.git`
+or download the latest release from https://github.com/Zavy86/tmtru/releases.
+
+Enter the new directory and execute `composer install`.
 
 Create a new virtual host pointing to the public directory.
 
@@ -62,7 +63,7 @@ In the administration page you can create a new link.
 - Fill the uid manually or leave it blank to have it generated automatically.
 - Enter the URL you want to point to.
 - Enter a description and some tags.
-- Press the Save link button.
+- Press the Save link button.o
 
 ## Screenshots
 
