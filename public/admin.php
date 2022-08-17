@@ -31,7 +31,7 @@ $page=$_REQUEST['page']??'list';
 ?>
 <html>
 <head>
-	<title>tmtru</title>
+	<title><?php echo $Configuration->getTitle(); ?></title>
 	<link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" href="css/bulma.min.css"/>
@@ -50,7 +50,7 @@ $page=$_REQUEST['page']??'list';
 			</a>
 
 			<span class="navbar-item is-bold">
-				TMTRU
+				<?php echo $Configuration->getTitle(); ?>
 			</span>
 
 			<div class="navbar-item">

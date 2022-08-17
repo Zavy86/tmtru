@@ -47,7 +47,7 @@ try{
 	<body>
 		<div class="container">
 			<img src="img/logo.png" alt="tmtru-logo" width="126">
-			<h1>tmtru</h1>
+			<h1><?php echo $Configuration->getTitle(); ?></h1>
 			<p class="italic">"tell me the real url"</p>
 			<br>
 			<p>Redirecting to <strong><a href="<?php echo $Link->getURL(); ?>"><?php echo $Link->getURL(); ?></a></strong></p>
