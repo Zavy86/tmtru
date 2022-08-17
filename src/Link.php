@@ -62,9 +62,10 @@ final class Link implements LinkInterface{
 		return $directory.DIRECTORY_SEPARATOR.$file;
 	}
 
-	private static function generateUID(int $length=3):string{
-		/** @todo ? creare classe specifica per generazione id con dimensione ecc.. */
-		if($length>32){$length=32;}
+	private static function generateUID():string{
+		$length=(new Configuration())->getLength();
+		if($length<3){$length=3;}
+		if($length>8){$length=8;}
 		$chars=array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
 			           's','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9');
 		do{
