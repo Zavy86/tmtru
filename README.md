@@ -87,6 +87,10 @@ In the administration page you can create a new link.
 
 ## Screenshots
 
+### Redirecting
+
+![redirecting screeshot](https://raw.githubusercontent.com/Zavy86/tmtru/master/screenshots/tmtru_redirecting.png "Redirecting")
+
 ### Settings
 
 ![settings screeshot](https://raw.githubusercontent.com/Zavy86/tmtru/master/screenshots/tmtru_settings.png "Settings")
