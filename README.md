@@ -8,36 +8,56 @@ https://github.com/Zavy86/tmtru
 
 ### Docker
 
-Work in progress...
+The Dockerfile will set up an Apache2/PHP server running *tmtru*.
+
+#### Options
+
+- Volume dataset: as *tmtru* stores configuration and links as flat-files in json format, mapping this on the host allows
+  easy access to settings and links. This can also be a named volume if you prefer.
+- PUID/PGID (optional): in linuxserver.io fashion, this sets the UID/GID of the apache user within the container,
+  so you can easily match a user on the host machine. Defaults to 1000/1000 if not set.
+
+#### Quick run
+
+`docker run -d -p 80:80 -v tmtru-dataset:/dataset -e PUID=1000 -e PGID=1000 zavy86/tmtru`
+
+#### Docker Compose
+
+```
+version: '3'
+
+services:
+  tmtru:
+    image: zavy86/tmtru
+  environment:
+    - PUID=1000
+    - PGID=1000
+  ports:
+    - 80:80
+  volumes:
+    - tmtru-dataset:/dataset
+```
+
+#### Build and run a local image
+
+From the source code directory execute commands:
+
+`docker build --no-cache -t tmtru .`
+
+`docker run -d -p 80:80 -v tmtru-dataset:/dataset -e PUID=1000 -e PGID=1000 tmtru`
 
 ### Manual
 
-Get the source code executing the command `composer create-project zavy86/tmtru`
-or clone the repository with `git clone https://github.com/Zavy86/tmtru.git`
+Get the source code cloning the repository with `git clone https://github.com/Zavy86/tmtru.git`
 or download the latest release from https://github.com/Zavy86/tmtru/releases.
 
-Enter the new directory and execute `composer install`.
-
-Create a new virtual host pointing to the public directory.
-
-Simple Apache/Laragon example:
-```
-<VirtualHost *:80> 
-    DocumentRoot "C:/Laragon/www/tmtru/public"
-    ServerName tmtru.test
-    ServerAlias *.tmtru.test
-    <Directory "C:/Laragon/www/tmtru/public">
-        AllowOverride All
-        Require all granted
-    </Directory>
-</VirtualHost>
-```
+Create a new virtual host pointing to the `/public` directory.
 
 ## Configuration
 
 - Open your browser to the defined url (example http://tmtru.test)
 - Click on the tmtru logo (link image)
-- Enter password `password` and press theLogin button
+- Enter password `password` and press the Login button
 - Click the Settings menu on the navigation bar
 - Choose the length of the generated UIDs (default 3)
 - Change the title if you want
