@@ -12,14 +12,15 @@ The Dockerfile will set up an Apache2/PHP server running *tmtru*.
 
 #### Options
 
+- Port: application run on port 80 but if you want you can specify another port. In this examples we will use the port 8080.
 - Volume dataset: as *tmtru* stores configuration and links as flat-files in json format, mapping this on the host allows
-  easy access to settings and links. This can also be a named volume if you prefer.
+  easy access to settings and links. This can also be a named volume if you prefer like in this examples.
 - PUID/PGID (optional): in linuxserver.io fashion, this sets the UID/GID of the apache user within the container,
   so you can easily match a user on the host machine. Defaults to 1000/1000 if not set.
 
 #### Quick run
 
-`docker run --name tmtru -d -p 80:80 -v tmtru-dataset:/dataset -e PUID=1000 -e PGID=1000 zavy86/tmtru`
+`docker run --name tmtru -d -p 8080:80 -v tmtru-dataset:/dataset -e PUID=1000 -e PGID=1000 zavy86/tmtru`
 
 #### Docker Compose
 
@@ -29,11 +30,11 @@ version: '3'
 services:
   tmtru:
     image: zavy86/tmtru
+  ports:
+    - 8080:80
   environment:
     - PUID=1000
     - PGID=1000
-  ports:
-    - 80:80
   volumes:
     - tmtru-dataset:/dataset
 ```
@@ -55,7 +56,7 @@ Create a new virtual host pointing to the `/public` directory.
 
 ## Configuration
 
-- Open your browser to the defined url (example http://tmtru.test)
+- Open your browser to the defined url (example http://localhost:8080)
 - Click on the tmtru logo (link image)
 - Enter password `password` and press the Login button
 - Click the Settings menu on the navigation bar
