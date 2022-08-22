@@ -19,7 +19,7 @@ The Dockerfile will set up an Apache2/PHP server running *tmtru*.
 
 #### Quick run
 
-`docker run -d -p 80:80 -v tmtru-dataset:/dataset -e PUID=1000 -e PGID=1000 zavy86/tmtru`
+`docker run --name tmtru -d -p 80:80 -v tmtru-dataset:/dataset -e PUID=1000 -e PGID=1000 zavy86/tmtru`
 
 #### Docker Compose
 
@@ -38,13 +38,13 @@ services:
     - tmtru-dataset:/dataset
 ```
 
-#### Build and run a local image
+#### Build and run a local image for development
 
 From the source code directory execute commands:
 
-`docker build --no-cache -t tmtru .`
+`docker build --no-cache -f development.dockerfile -t tmtru-dev .`
 
-`docker run -d -p 80:80 -v tmtru-dataset:/dataset -e PUID=1000 -e PGID=1000 tmtru`
+`docker run --name tmtru-dev -d -p 8080:80 -v ${PWD}:/var/www/localhost/htdocs tmtru-dev`
 
 ### Manual
 
