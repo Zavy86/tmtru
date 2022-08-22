@@ -1,15 +1,32 @@
+#
+# Development
+#
+# Build command:
+# docker build --no-cache -f production.dockerfile -t zavy86/tmtru .
+#
+# Push command:
+# docker push zavy86/tmtru
+#
+# Run command:
+# docker run --name tmtru -d -p 80:80 -v tmtru-dataset:/dataset -e PUID=1000 -e PGID=1000 zavy86/tmtru
+#
+
 FROM alpine:3
 
-RUN apk add --no-cache \
-    apache2 \
-    php8 \
-    php8-apache2 \
-    php8-session \
-    php8-mbstring \
-    php8-json \
-    shadow \
-    nano \
-    curl
+ARG DEPENDENCIES="\
+nano \
+curl \
+shadow \
+apache2 \
+php8 \
+php8-apache2 \
+php8-json \
+php8-mbstring \
+php8-session \
+"
+
+# installation
+RUN apk add --no-cache $DEPENDENCIES
 
 # download and extract tmtru archive
 RUN curl -Lso tmtru.tar.gz https://github.com/Zavy86/tmtru/archive/master.tar.gz
