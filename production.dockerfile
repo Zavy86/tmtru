@@ -28,12 +28,16 @@ php8-session \
 # installation
 RUN apk add --no-cache $DEPENDENCIES
 
-# download and extract tmtru archive
-RUN curl -Lso tmtru.tar.gz https://github.com/Zavy86/tmtru/archive/master.tar.gz
-RUN tar --strip-components=1 -xf tmtru.tar.gz -C /var/www/localhost/htdocs/
-RUN rm tmtru.tar.gz
+# copy source code
+COPY . /var/www/localhost/htdocs/
 
-# make initial configuration and links symblic link
+# remove unnecessary files
+RUN rm -f /var/www/localhost/htdocs/development.dockerfile
+RUN rm -f /var/www/localhost/htdocs/production.dockerfile
+RUN rm -f /var/www/localhost/htdocs/configuration.json
+RUN rm -fR /var/www/localhost/htdocs/links
+
+# make initial configuration and symblic link
 RUN mkdir /dataset
 RUN mkdir /dataset/links
 RUN echo "{\"debuggable\":true,\"length\":3,\"title\":\"tmtru\",\"owner\":\"Firstname Lastname\",\"password\":\"password\",\"gTag\":\"\"}" > /dataset/configuration.json
@@ -42,11 +46,11 @@ RUN ln -s /dataset/links /var/www/localhost/htdocs/
 
 # move document root and directory htdocs to public
 RUN sed -ri \
-    -e 's!^DocumentRoot "/var/www/localhost/htdocs"$!DocumentRoot "/var/www/localhost/htdocs/public"!g' \
-    -e 's!^<Directory "/var/www/localhost/htdocs">$!<Directory "/var/www/localhost/htdocs/public">!g' \
-    -e 's!^#(LoadModule rewrite_module .*)$!\1!g' \
-    -e 's!^(\s*AllowOverride) None.*$!\1 All!g' \
-    "/etc/apache2/httpd.conf"
+-e 's!^DocumentRoot "/var/www/localhost/htdocs"$!DocumentRoot "/var/www/localhost/htdocs/public"!g' \
+-e 's!^<Directory "/var/www/localhost/htdocs">$!<Directory "/var/www/localhost/htdocs/public">!g' \
+-e 's!^#(LoadModule rewrite_module .*)$!\1!g' \
+-e 's!^(\s*AllowOverride) None.*$!\1 All!g' \
+"/etc/apache2/httpd.conf"
 
 # start script to override apache user's uid/gid
 RUN echo -e \
