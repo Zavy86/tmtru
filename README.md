@@ -2,7 +2,11 @@
 
 🔗 Tell Me The Real URL - A simple personal databaseless URL shortener and redirect
 
-https://github.com/Zavy86/tmtru
+Repository: https://github.com/Zavy86/tmtru
+
+*Please consider supporting this project by making a donation via [PayPal](https://www.paypal.me/zavy86)*
+
+[![tmtru, a simple databaseless url shortner on YouTube](https://raw.githubusercontent.com/Zavy86/tmtru/master/screenshots/tmtru_youtube.jpg)](https://youtu.be/iai6rCcRQ8s "tmtru, a simple databaseless url shortner on YouTube")
 
 ## Setup
 
