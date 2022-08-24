@@ -27,6 +27,7 @@ try{
 	<head>
 		<title><?php echo $Configuration->getTitle(); ?></title>
 		<link rel="icon" type="image/x-icon" href="img/favicon.ico"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
 	</head>
 	<body>
