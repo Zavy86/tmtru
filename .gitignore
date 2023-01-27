@@ -1,3 +1,4 @@
-/.idea/
-/links/
+.idea
+.DS_Store
+links/
 configuration.json
