@@ -11,7 +11,7 @@
 # docker run --name tmtru -d -p 80:80 -v tmtru-dataset:/dataset -e PUID=1000 -e PGID=1000 zavy86/tmtru
 #
 
-FROM alpine:3
+FROM alpine:3.16
 
 ARG DEPENDENCIES="\
 nano \
