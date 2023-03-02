@@ -34,13 +34,13 @@ version: '3'
 services:
   tmtru:
     image: zavy86/tmtru
-  ports:
-    - 8080:80
-  environment:
-    - PUID=1000
-    - PGID=1000
-  volumes:
-    - tmtru-dataset:/dataset
+      ports:
+        - 8080:80
+      environment:
+        - PUID=1000
+        - PGID=1000
+      volumes:
+        - tmtru-dataset:/dataset
 ```
 
 #### Build and run a local image for development
