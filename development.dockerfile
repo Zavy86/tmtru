@@ -3,7 +3,6 @@
 #
 # Build command:
 # docker build --no-cache -f development.dockerfile -t tmtru-dev .
-# docker buildx build --platform linux/amd64,linux/arm64 --no-cache -f production.dockerfile -t zavy86/tmtru .
 #
 # Run command:
 # docker run --name tmtru-dev -d -p 8080:80 -v ${PWD}:/var/www/localhost/htdocs tmtru-dev
