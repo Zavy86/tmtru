@@ -7,7 +7,7 @@
 # Build multi-architecture
 # docker buildx create --name builder --driver docker-container --use
 # docker buildx inspect --bootstrap
-# docker buildx build --platform linux/amd64,linux/arm64 --no-cache -f production.dockerfile -t zavy86/tmtru .
+# docker buildx build --platform linux/amd64,linux/arm64 --no-cache --push -f production.dockerfile -t zavy86/tmtru .
 #
 # Push command:
 # docker push zavy86/tmtru
